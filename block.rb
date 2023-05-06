@@ -12,7 +12,7 @@ class Block
     @stakeholder, @hash  = compute_hash_with_proof_of_stake(stakeholders)
   end
 
-	def compute_hash_with_proof_of_stake(stakeholders)
+  def compute_hash_with_proof_of_stake(stakeholders)
     selected_stakeholder = select_stakeholder(stakeholders)
     sha = Digest::SHA256.new
     sha.update(selected_stakeholder.to_s + @index.to_s + @timestamp.to_s + @transactions.to_s + @transactions_count.to_s + @previous_hash)
