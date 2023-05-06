@@ -1,29 +1,25 @@
-require 'digest'    							# For hash checksum digest function SHA256
-require 'pp'        							# For pp => pretty printer
-require_relative 'block'					# class Block
+require 'digest'    				# For hash checksum digest function SHA256
+require 'pp'        				# For pp => pretty printer
+require_relative 'block'			# class Block
 require_relative 'transaction'		# method Transactions
-
-# TRANSACTIONS = []
 
 LEDGER = []
 
 STAKEHOLDERS = {
-	"Alice" => 50,
-	"Bob" => 100,
-	"Carol" => 200,
-	"Dave" => 150
+	"Ignacio" => 50,
+	"Julio" => 200,
+	"Carlos" => 150
 }
 
 def create_first_block
 	i = 0
 	instance_variable_set("@b#{i}", Block.first(STAKEHOLDERS, 
-		{ from: "Dutchgrown", to: "Vincent", what: "Tulip Bloemendaal Sunset", qty: 10 },
-		{ from: "Keukenhof", to: "Anne", what: "Tulip Semper Augustus", qty: 7 }
+		{ from: "Madrid", to: "Andres", what: "Practica", qty: 10 },
+		{ from: "Barcelona", to: "Gerardo", what: "Amor", qty: 7 }
 	))
 	LEDGER << @b0
 	pp @b0
 	p "============================"
-	#add_block
 end
 	
 def add_block
@@ -59,6 +55,3 @@ def launcher
 	puts "==========================="
 	create_first_block
 end
-
-
-# launcher
